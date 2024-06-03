@@ -22,14 +22,14 @@ O sistema mede a distância entre o sensor ultrassônico e a superfície da águ
 ### Programação
 1. Inicialize o display LCD, o sensor ultrassônico e o módulo RTC no código.
 2. No loop principal:
-   - Meça a distância com o sensor ultrassônico.
-   - Obtenha a data e a hora do módulo RTC.
-   - Exiba a distância e a mensagem de detecção de lixo ou “Água Limpa” no display LCD.
-   - Alterne entre exibir a data/hora e a distância em intervalos regulares.
+   - É medido a distância com o sensor ultrassônico.
+   - A data e a hora são obtidas do módulo RTC.
+   - É exibida a distância e a mensagem de detecção de lixo ou “Água Limpa” no display LCD.
+   - É alternado entre exibir a data/hora e a distância em intervalos regulares.
 
 ### Exibição no Display
-- Quando a distância for menor que um limite pré-definido (indicando a presença de lixo), exiba “Lixo Detectado!”.
-- Caso contrário, exiba “Água Limpa”.
+- Quando a distância for menor que um limite pré-definido (indicando a presença de lixo), o display exibe “Lixo Detectado!”.
+- Caso contrário, o display exibe “Água Limpa”.
 - Em intervalos regulares, o texto é alterado para exibir a data e a hora.
 
 ### Considerações Adicionais
