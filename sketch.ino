@@ -37,7 +37,7 @@ void setup() {
   }
 
   if (!rtc.isrunning()) {
-    // Se o RTC perdeu a energia, defina a data e a hora para a compilação
+    // Se o RTC perdeu a energia, define a data e a hora para a compilação
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
 
@@ -64,38 +64,29 @@ void loop() {
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     showDateTime = !showDateTime;
+    lcd.clear(); // Limpa o LCD apenas quando mudar a mensagem
   }
 
   if (showDateTime) {
     // Exibe a data e a hora no display LCD
-    lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("DATA: ");
-    if (now.day() < 10) lcd.print('0');
-    lcd.print(now.day());
-    lcd.print('/');
-    if (now.month() < 10) lcd.print('0');
-    lcd.print(now.month());
-    lcd.print('/');
-    lcd.print(now.year());
+    char dateBuffer[11]; // Buffer para a data no formato DD/MM/YYYY
+    snprintf(dateBuffer, sizeof(dateBuffer), "%02d/%02d/%04d", now.day(), now.month(), now.year());
+    lcd.print(dateBuffer);
+
     lcd.setCursor(0, 1);
     lcd.print("HORA: ");
-    if (now.hour() < 10) lcd.print('0');
-    lcd.print(now.hour());
-    lcd.print(':');
-    if (now.minute() < 10) lcd.print('0');
-    lcd.print(now.minute());
-    lcd.print(':');
-    if (now.second() < 10) lcd.print('0');
-    lcd.print(now.second());
+    char timeBuffer[9]; // Buffer para a hora no formato hh:mm:ss
+    snprintf(timeBuffer, sizeof(timeBuffer), "%02d:%02d:%02d", now.hour(), now.minute(), now.second());
+    lcd.print(timeBuffer);
   } else {
     // Exibe a distância e a mensagem de detecção de lixo no display LCD
-    lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Distancia: ");
     if (distanceCm > 100) {
       float distanceM = distanceCm / 100.0; // Converte para metros
-      lcd.print(distanceM);
+      lcd.print(distanceM, 2); // Mostra 2 casas decimais
       lcd.print(" m");
     } else {
       lcd.print(distanceCm);
