@@ -7,6 +7,7 @@ Este projeto visa contribuir para a conscientização sobre a poluição dos oce
 O sistema mede a distância entre o sensor ultrassônico e a superfície da água. Com base nessa distância, exibe informações relevantes no display LCD. Além disso, mostra a data e a hora atual obtidas do módulo RTC.
 
 ### Requisitos
+- Instalação das bibliotecas (LiquidCrystal I2C, RTClib)
 - Arduino Uno ou similar
 - Sensor ultrassônico
 - Display LCD (16x2 ou 20x4) com módulo I2C
