@@ -42,4 +42,4 @@ O sistema mede a distância entre o sensor ultrassônico e a superfície da águ
 Esperamos que essa solução conscientize as populações costeiras e incentive práticas sustentáveis para a preservação dos ecossistemas marinhos.
 
 ### Simulação Online
-[Wokwi]((https://wokwi.com/projects/399567167559773185)
+[Wokwi](https://wokwi.com/projects/399567167559773185)
